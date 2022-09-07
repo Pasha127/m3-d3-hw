@@ -5,35 +5,30 @@ import {Component} from "react";
 class SingleBook extends Component{
 
     state={
-        selected: false,
-        highlight: "3px solid #00FF00",
-        noHighlight:"none"
+        selected: false        
     }
 
     render (){
         return(
             <>
-                {bookList.map((book, index) => (
-                    book.title.toLowerCase().includes(this.props.query.toLowerCase()) && (
+                {bookList.filter(book => {book.title.toLowerCase().includes(this.props.query.toLowerCase())}).map((book, index) => (                    
                     <Card className="ml-4" style={{ width: '16rem' }} key={`book-${index}`}
                     onClick={
                         ()=>{
-                        this.setState({selected: true});
-                        console.log(this);
+                            this.setState({selected: true});
+                            console.log(this);
                         }
-                    }>
-                    {this.state.selected?// <--all are highlighted on click   //this.state.selected && this.book.id === book.id? <--breaks when clicked
-                    (<Card.Img variant="top" src={book.img} style={{border: this.state.highlight}} />) :
-                    (<Card.Img variant="top" src={book.img} style={{border: this.state.noHighlight}} />)}
+                    }>                    
+                    <Card.Img variant="top" src={book.img} className={this.state.selected ? "highlight" : "noHighlight"} /> :
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
                       <Card.Text>
                         {book.category}
                       </Card.Text>
-                      <Button variant="primary">Go somewhere</Button>
+                      {/* <Button variant="primary">Go somewhere</Button> */}
                     </Card.Body>
                   </Card>
-                )))}
+                ))}
             </>
         );
     };
