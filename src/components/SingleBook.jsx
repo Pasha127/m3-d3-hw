@@ -21,9 +21,9 @@ class SingleBook extends Component{
                         this.setState({selected: true})
                         }
                     }>
-                    this.state.selected? 
+                    {this.state.selected? 
                     (<Card.Img variant="top" src={book.img} style={{border: this.state.highlight}} />) :
-                    (<Card.Img variant="top" src={book.img} style={{border: this.state.noHighlight}} />)
+                    (<Card.Img variant="top" src={book.img} style={{border: this.state.noHighlight}} />)}
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
                       <Card.Text>

@@ -16,7 +16,7 @@ class BookList extends Component{
         
     render(){
         return(
-            <>
+            <div className="d-flex flex-column">
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Book Search:</Form.Label>
@@ -27,8 +27,10 @@ class BookList extends Component{
                     {console.log(this.state.query)}             
                 </Form.Group>
             </Form>
-            <SingleBook query={this.state.query}/>            
-            </>
+            <div className="d-flex flex-wrap">
+                <SingleBook query={this.state.query}/>            
+            </div>
+            </div>
             )
         }
         
