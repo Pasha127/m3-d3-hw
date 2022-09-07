@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WarningSign from './components/WarningSign';
 import MyBadge from './components/MyBadge';
 import BookList from './components/BookList';
+import books from "../books/fantasy.json";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <MyBadge inputText="ExampleTxt" />
       <div className="container">
         <div className='row'>
-        <BookList/>
+        <BookList books={books}/>
         </div>
       </div>
     </div>
