@@ -20,7 +20,7 @@ class BookList extends Component{
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Book Search:</Form.Label>
-                  <Form.Control onChange={(e)=>{this.setVal(e)}} value={this.state.value} type="input" placeholder="Enter book title"  />
+                  <Form.Control onChange={(e)=>{this.setVal(e)}} value={this.state.value} type="input" placeholder="Enter a fantasy book title"  />
                     <Button onClick={()=>{}} aria-label="Enter">
                         <p className="mb-0">Enter</p>
                     </Button> 

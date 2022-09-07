@@ -18,10 +18,11 @@ class SingleBook extends Component{
                     <Card className="ml-4" style={{ width: '16rem' }} key={`book-${index}`}
                     onClick={
                         ()=>{
-                        this.setState({selected: true})
+                        this.setState({selected: true});
+                        console.log(this);
                         }
                     }>
-                    {this.state.selected? 
+                    {this.state.selected?// <--all are highlighted on click   //this.state.selected && this.book.id === book.id? <--breaks when clicked
                     (<Card.Img variant="top" src={book.img} style={{border: this.state.highlight}} />) :
                     (<Card.Img variant="top" src={book.img} style={{border: this.state.noHighlight}} />)}
                     <Card.Body>
