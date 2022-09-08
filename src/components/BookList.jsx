@@ -17,25 +17,29 @@ class BookList extends Component{
     render(){
         return(
             <div className="d-flex flex-column">
+                
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Book Search:</Form.Label>
                   <Form.Control onChange={(e)=>{this.setVal(e)}} value={this.state.value} type="input" placeholder="Enter a fantasy book title"  />
-                    <Button onClick={()=>{}} aria-label="Enter">
-                        <p className="mb-0">Enter</p>
-                    </Button> 
-                    {console.log(this.state.query)}             
+                               
                 </Form.Group>
             </Form>
             <div className="d-flex flex-wrap">
-                <SingleBook query={this.state.query}/>            
+            {this.props.books.filter(book => {return(book.title.toLowerCase().includes(this.state.query?.toLowerCase()))}).map((book) => {
+                return(<SingleBook key={book.asin} book={book} query={this.state.query}/>
+               )            
+            })}
             </div>
             </div>
             )
         }
         
-}
-
+    }
+    
+   // <Button onClick={()=>{}} aria-label="Enter">
+   //     <p className="mb-0">Enter</p>
+   // </Button>  
     
 
 export default BookList
