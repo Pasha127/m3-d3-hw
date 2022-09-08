@@ -21,13 +21,13 @@ class BookList extends Component{
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Book Search:</Form.Label>
-                  <Form.Control onChange={(e)=>{this.setVal(e)}} value={this.state.value} type="input" placeholder="Enter a fantasy book title"  />
+                  <Form.Control onChange={(e)=>{this.setVal(e)}} value={this.state.value} type="input" placeholder="Enter a book title"  />
                                
                 </Form.Group>
             </Form>
             <div className="d-flex flex-wrap">
             {this.props.books.filter(book => {return(book.title.toLowerCase().includes(this.state.query?.toLowerCase()))}).map((book) => {
-                return(<SingleBook key={book.asin} book={book} query={this.state.query}/>
+                return(<SingleBook key={`${book.asin}-${book.category}`} book={book} query={this.state.query}/>
                )            
             })}
             </div>
